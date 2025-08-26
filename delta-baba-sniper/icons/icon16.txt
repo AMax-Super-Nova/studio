@@ -1,0 +1,11 @@
+PLACEHOLDER ICON - 16x16 PNG
+Create a 16x16 pixel PNG icon with:
+- Blue to green gradient background
+- White chart line going up
+- Delta symbol (Δ) at bottom
+- Rounded corners
+
+For demo purposes, you can:
+1. Open the create_icons.html file in a browser
+2. Right-click the 16x16 canvas and save as icon16.png
+3. Or use any icon generator tool to create a simple trading chart icon
