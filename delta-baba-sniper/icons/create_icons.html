@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delta Baba Sniper Icon Generator</title>
+</head>
+<body>
+    <h3>Delta Baba Sniper 18.0 Icons</h3>
+    <p>Use browser dev tools to save these as PNG files:</p>
+    
+    <canvas id="icon16" width="16" height="16"></canvas>
+    <canvas id="icon32" width="32" height="32"></canvas>
+    <canvas id="icon48" width="48" height="48"></canvas>
+    <canvas id="icon128" width="128" height="128"></canvas>
+
+    <script>
+        function createIcon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#4dabf7');
+            gradient.addColorStop(1, '#28a745');
+            
+            // Draw background
+            ctx.fillStyle = gradient;
+            ctx.roundRect = function(x, y, w, h, r) {
+                this.beginPath();
+                this.moveTo(x + r, y);
+                this.lineTo(x + w - r, y);
+                this.quadraticCurveTo(x + w, y, x + w, y + r);
+                this.lineTo(x + w, y + h - r);
+                this.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+                this.lineTo(x + r, y + h);
+                this.quadraticCurveTo(x, y + h, x, y + h - r);
+                this.lineTo(x, y + r);
+                this.quadraticCurveTo(x, y, x + r, y);
+                this.closePath();
+            };
+            
+            ctx.roundRect(0, 0, size, size, size * 0.2);
+            ctx.fill();
+            
+            // Draw chart line
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = size * 0.08;
+            ctx.beginPath();
+            ctx.moveTo(size * 0.1, size * 0.8);
+            ctx.lineTo(size * 0.3, size * 0.5);
+            ctx.lineTo(size * 0.5, size * 0.6);
+            ctx.lineTo(size * 0.9, size * 0.25);
+            ctx.stroke();
+            
+            // Draw points
+            ctx.fillStyle = 'white';
+            const pointSize = size * 0.06;
+            ctx.beginPath();
+            ctx.arc(size * 0.3, size * 0.5, pointSize, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(size * 0.5, size * 0.6, pointSize, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(size * 0.9, size * 0.25, pointSize, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Add delta symbol
+            ctx.fillStyle = 'white';
+            ctx.font = `${size * 0.25}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.fillText('Δ', size * 0.5, size * 0.95);
+        }
+        
+        // Generate all icon sizes
+        createIcon('icon16', 16);
+        createIcon('icon32', 32);
+        createIcon('icon48', 48);
+        createIcon('icon128', 128);
+        
+        // Instructions
+        document.body.innerHTML += '<p>Right-click each canvas and "Save image as" with the format: icon16.png, icon32.png, icon48.png, icon128.png</p>';
+    </script>
+</body>
+</html>

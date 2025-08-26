@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delta Baba Sniper 18.0</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="icons/icon32.png" alt="Delta Baba Sniper" class="logo-icon">
+                <h1>Delta Baba Sniper 18.0</h1>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn">🌙</button>
+            </div>
+        </header>
+
+        <!-- Status Panel -->
+        <div class="status-panel">
+            <div class="status-item">
+                <span class="label">Symbol:</span>
+                <span id="currentSymbol" class="value">-</span>
+            </div>
+            <div class="status-item">
+                <span class="label">Price:</span>
+                <span id="currentPrice" class="value">-</span>
+            </div>
+            <div class="status-item">
+                <span class="label">Status:</span>
+                <span id="connectionStatus" class="value status-disconnected">Disconnected</span>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <div class="control-group">
+                <label for="timeframe">Timeframe:</label>
+                <select id="timeframe" class="select-input">
+                    <option value="1m">1M</option>
+                    <option value="5m" selected>5M</option>
+                    <option value="10m">10M</option>
+                    <option value="15m">15M</option>
+                    <option value="30m">30M</option>
+                    <option value="1h">1H</option>
+                    <option value="2h">2H</option>
+                    <option value="3h">3H</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="language">Language:</label>
+                <select id="language" class="select-input">
+                    <option value="en">English</option>
+                    <option value="hi">हिंदी</option>
+                </select>
+            </div>
+            <button id="refreshBtn" class="action-btn">🔄 Refresh</button>
+        </div>
+
+        <!-- Chart Container -->
+        <div class="chart-container">
+            <div id="tradingview-chart" class="chart"></div>
+            <div id="chartLoader" class="chart-loader">
+                <div class="spinner"></div>
+                <p>Loading chart data...</p>
+            </div>
+        </div>
+
+        <!-- Indicators Panel -->
+        <div class="indicators-panel">
+            <h3>Technical Indicators</h3>
+            <div class="indicators-grid">
+                <div class="indicator-item">
+                    <span class="indicator-name">EMA 9:</span>
+                    <span id="ema9" class="indicator-value">-</span>
+                </div>
+                <div class="indicator-item">
+                    <span class="indicator-name">EMA 21:</span>
+                    <span id="ema21" class="indicator-value">-</span>
+                </div>
+                <div class="indicator-item">
+                    <span class="indicator-name">EMA 55:</span>
+                    <span id="ema55" class="indicator-value">-</span>
+                </div>
+                <div class="indicator-item">
+                    <span class="indicator-name">RSI:</span>
+                    <span id="rsi" class="indicator-value">-</span>
+                </div>
+                <div class="indicator-item">
+                    <span class="indicator-name">MACD:</span>
+                    <span id="macd" class="indicator-value">-</span>
+                </div>
+                <div class="indicator-item">
+                    <span class="indicator-name">Supertrend:</span>
+                    <span id="supertrend" class="indicator-value">-</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signals Panel -->
+        <div class="signals-panel">
+            <h3>Trading Signals</h3>
+            <div class="signal-card" id="currentSignal">
+                <div class="signal-header">
+                    <span id="signalType" class="signal-type">No Signal</span>
+                    <div id="signalConfidence" class="confidence-bars">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+                <div class="signal-details">
+                    <div class="signal-item">
+                        <span class="label">Entry:</span>
+                        <span id="entryPrice" class="value">-</span>
+                    </div>
+                    <div class="signal-item">
+                        <span class="label">Exit:</span>
+                        <span id="exitPrice" class="value">-</span>
+                    </div>
+                    <div class="signal-item">
+                        <span class="label">Time:</span>
+                        <span id="signalTime" class="value">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Predictions Panel -->
+        <div class="predictions-panel">
+            <h3>Next 5min Prediction</h3>
+            <div id="predictionsList" class="predictions-list">
+                <div class="prediction-item">
+                    <div class="prediction-time">Loading predictions...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-item">
+                <span>🎯 Accuracy: <span id="accuracy">-</span>%</span>
+            </div>
+            <div class="footer-item">
+                <span>📊 Signals: <span id="signalCount">0</span></span>
+            </div>
+            <div class="footer-item">
+                <button id="soundToggle" class="sound-btn">🔊</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Include TradingView Lightweight Charts -->
+    <script src="libs/lightweight-charts.standalone.production.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

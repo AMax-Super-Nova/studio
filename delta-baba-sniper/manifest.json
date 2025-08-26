@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Delta Baba Sniper 18.0",
+  "version": "18.0.0",
+  "description": "Advanced technical analysis tool for Delta Exchange India with real-time entry/exit predictions",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "background"
+  ],
+  "host_permissions": [
+    "https://www.delta.exchange/*",
+    "https://api.delta.exchange/*",
+    "https://socket.delta.exchange/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.delta.exchange/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Delta Baba Sniper 18.0"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["libs/*", "assets/*"],
+      "matches": ["https://www.delta.exchange/*"]
+    }
+  ]
+}
