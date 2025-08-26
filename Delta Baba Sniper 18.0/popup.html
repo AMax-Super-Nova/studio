@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delta Baba Sniper 18.0</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="icons/icon32.png" alt="Delta Baba Sniper" class="logo-icon">
+                <h1>Delta Baba Sniper 18.0</h1>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Coin Info Panel -->
+        <div class="coin-panel">
+            <div class="coin-info">
+                <div class="coin-name" id="coinName">Loading...</div>
+                <div class="coin-price" id="coinPrice">₹0.00</div>
+            </div>
+            <div class="coin-change" id="coinChange">+0.00%</div>
+        </div>
+
+        <!-- Timeframe Selector -->
+        <div class="timeframe-selector">
+            <label for="timeframe">Timeframe:</label>
+            <select id="timeframe" class="timeframe-dropdown">
+                <option value="1m">1M</option>
+                <option value="5m">5M</option>
+                <option value="10m">10M</option>
+                <option value="15m">15M</option>
+                <option value="30m">30M</option>
+                <option value="1h">1H</option>
+                <option value="2h">2H</option>
+                <option value="3h">3H</option>
+            </select>
+        </div>
+
+        <!-- Chart Container -->
+        <div class="chart-container">
+            <div id="chart" class="trading-chart"></div>
+        </div>
+
+        <!-- Signal Panel -->
+        <div class="signal-panel">
+            <div class="signal-header">
+                <h3>Live Signals</h3>
+                <div class="signal-status" id="signalStatus">Scanning...</div>
+            </div>
+            <div class="signal-content">
+                <div class="signal-item" id="currentSignal">
+                    <div class="signal-type">No Signal</div>
+                    <div class="signal-confidence">--</div>
+                    <div class="signal-time">--</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Indicators Panel -->
+        <div class="indicators-panel">
+            <div class="panel-header">
+                <h3>Technical Indicators</h3>
+                <button id="refreshIndicators" class="refresh-btn">🔄</button>
+            </div>
+            <div class="indicators-grid">
+                <div class="indicator-item">
+                    <span class="indicator-label">EMA 9:</span>
+                    <span class="indicator-value" id="ema9">--</span>
+                </div>
+                <div class="indicator-item">
+                    <span class="indicator-label">EMA 21:</span>
+                    <span class="indicator-value" id="ema21">--</span>
+                </div>
+                <div class="indicator-item">
+                    <span class="indicator-label">EMA 55:</span>
+                    <span class="indicator-value" id="ema55">--</span>
+                </div>
+                <div class="indicator-item">
+                    <span class="indicator-label">RSI:</span>
+                    <span class="indicator-value" id="rsi">--</span>
+                </div>
+                <div class="indicator-item">
+                    <span class="indicator-label">MACD:</span>
+                    <span class="indicator-value" id="macd">--</span>
+                </div>
+                <div class="indicator-item">
+                    <span class="indicator-label">Supertrend:</span>
+                    <span class="indicator-value" id="supertrend">--</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Panel -->
+        <div class="settings-panel">
+            <div class="panel-header">
+                <h3>Settings</h3>
+            </div>
+            <div class="settings-content">
+                <div class="setting-item">
+                    <label for="soundAlerts">Sound Alerts:</label>
+                    <input type="checkbox" id="soundAlerts" checked>
+                </div>
+                <div class="setting-item">
+                    <label for="language">Language:</label>
+                    <select id="language" class="language-dropdown">
+                        <option value="en">English</option>
+                        <option value="hi">Hindi</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label for="predictionTime">Prediction Time (min):</label>
+                    <input type="number" id="predictionTime" value="5" min="1" max="15">
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="status-bar">
+                <span class="connection-status" id="connectionStatus">🟢 Connected</span>
+                <span class="last-update" id="lastUpdate">Last Update: --</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
