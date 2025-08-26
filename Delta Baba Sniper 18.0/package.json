@@ -1,0 +1,49 @@
+{
+  "name": "delta-baba-sniper",
+  "version": "18.0.0",
+  "description": "Advanced trading scanner for Delta Exchange India with real-time technical analysis and prediction engine",
+  "main": "popup.js",
+  "scripts": {
+    "build": "echo 'Extension is ready to load as unpacked'",
+    "dev": "echo 'Extension is ready to load as unpacked'",
+    "test": "echo 'No tests configured yet'",
+    "lint": "echo 'No linter configured yet'"
+  },
+  "keywords": [
+    "chrome-extension",
+    "trading",
+    "cryptocurrency",
+    "technical-analysis",
+    "delta-exchange",
+    "india",
+    "trading-signals",
+    "chart-analysis"
+  ],
+  "author": "Delta Baba Sniper Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/delta-baba-sniper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/delta-baba-sniper/issues"
+  },
+  "homepage": "https://github.com/yourusername/delta-baba-sniper#readme",
+  "engines": {
+    "chrome": ">=88.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "manifest": {
+    "version": 3,
+    "permissions": [
+      "activeTab",
+      "storage",
+      "scripting"
+    ],
+    "host_permissions": [
+      "https://*.delta.exchange/*",
+      "https://api.delta.exchange/*"
+    ]
+  }
+}
