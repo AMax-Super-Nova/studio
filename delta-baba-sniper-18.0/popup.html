@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delta Baba Sniper 18.0</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <!-- Header -->
+        <header class="popup-header">
+            <div class="logo-section">
+                <div class="logo">🚀</div>
+                <div class="title">
+                    <h1>Delta Baba Sniper</h1>
+                    <span class="version">v18.0.0</span>
+                </div>
+            </div>
+            <div class="status-indicator">
+                <div id="status-dot" class="status-dot offline"></div>
+                <span id="status-text">Offline</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="popup-main">
+            <!-- Scanner Control -->
+            <section class="scanner-section">
+                <h2>Scanner Control</h2>
+                <div class="control-group">
+                    <button id="activate-scanner" class="btn btn-primary">
+                        🚀 Activate Scanner
+                    </button>
+                    <button id="deactivate-scanner" class="btn btn-secondary" disabled>
+                        ⏹️ Deactivate Scanner
+                    </button>
+                </div>
+                <div class="scanner-info">
+                    <div class="info-item">
+                        <span class="label">Symbol:</span>
+                        <span id="current-symbol" class="value">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Timeframe:</span>
+                        <span id="current-timeframe" class="value">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Data Points:</span>
+                        <span id="data-points" class="value">-</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeframe Selection -->
+            <section class="timeframe-section">
+                <h2>Timeframe Selection</h2>
+                <div class="timeframe-grid">
+                    <button class="timeframe-btn" data-timeframe="1m">1m</button>
+                    <button class="timeframe-btn active" data-timeframe="5m">5m</button>
+                    <button class="timeframe-btn" data-timeframe="10m">10m</button>
+                    <button class="timeframe-btn" data-timeframe="15m">15m</button>
+                    <button class="timeframe-btn" data-timeframe="30m">30m</button>
+                    <button class="timeframe-btn" data-timeframe="1h">1h</button>
+                    <button class="timeframe-btn" data-timeframe="2h">2h</button>
+                    <button class="timeframe-btn" data-timeframe="3h">3h</button>
+                </div>
+            </section>
+
+            <!-- Live Signals -->
+            <section class="signals-section">
+                <h2>Live Signals</h2>
+                <div id="signals-container" class="signals-container">
+                    <div class="no-signals">
+                        <div class="no-signals-icon">📊</div>
+                        <p>No signals yet</p>
+                        <small>Activate scanner to start receiving signals</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings -->
+            <section class="settings-section">
+                <h2>Settings</h2>
+                <div class="setting-item">
+                    <label for="theme-selector">Theme:</label>
+                    <select id="theme-selector" class="setting-select">
+                        <option value="trader">Trader Mode</option>
+                        <option value="desi">Desi Mode</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label for="language-selector">Language:</label>
+                    <select id="language-selector" class="setting-select">
+                        <option value="english">English</option>
+                        <option value="hindi">Hindi</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="sound-alerts" checked>
+                        <span class="checkmark"></span>
+                        Sound Alerts
+                    </label>
+                </div>
+            </section>
+
+            <!-- Performance Metrics -->
+            <section class="performance-section">
+                <h2>Performance</h2>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <span class="metric-label">Accuracy</span>
+                        <span id="accuracy-metric" class="metric-value">-</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Total Signals</span>
+                        <span id="total-signals" class="metric-value">-</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Success Rate</span>
+                        <span id="success-rate" class="metric-value">-</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="popup-footer">
+            <div class="footer-links">
+                <button id="refresh-btn" class="footer-btn">🔄 Refresh</button>
+                <button id="help-btn" class="footer-btn">❓ Help</button>
+            </div>
+            <div class="footer-status">
+                <span id="last-update">Last update: Never</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Delta Baba Sniper Help</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>Getting Started</h3>
+                <ol>
+                    <li>Navigate to Delta Exchange India trading page</li>
+                    <li>Click "Activate Scanner" to start analysis</li>
+                    <li>Select your preferred timeframe</li>
+                    <li>Monitor live signals and predictions</li>
+                </ol>
+                
+                <h3>Indicators Used</h3>
+                <ul>
+                    <li><strong>EMA:</strong> 9, 21, 55 period moving averages</li>
+                    <li><strong>RSI:</strong> Relative Strength Index (14 period)</li>
+                    <li><strong>MACD:</strong> Moving Average Convergence Divergence</li>
+                    <li><strong>Supertrend:</strong> Three variants (4/1, 7/2, 10/3)</li>
+                    <li><strong>Pivot Points:</strong> Support and resistance levels</li>
+                </ul>
+                
+                <h3>Signal Types</h3>
+                <ul>
+                    <li><strong>Buy Entry:</strong> Bullish signal with entry price</li>
+                    <li><strong>Sell Entry:</strong> Bearish signal with entry price</li>
+                    <li><strong>Exit Signals:</strong> When to close positions</li>
+                </ul>
+                
+                <h3>Important Notes</h3>
+                <ul>
+                    <li>This extension does NOT execute trades automatically</li>
+                    <li>All trades must be placed manually on Delta Exchange</li>
+                    <li>Signals are based on technical analysis only</li>
+                    <li>Always use proper risk management</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
